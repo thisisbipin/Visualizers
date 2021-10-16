@@ -164,8 +164,7 @@ document.getElementById("myRange").oninput = function () {
 
 // Automatically refresh the page on resize
 window.onresize = () => {
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! mobile mode
-    // if(GLOBALS.isrunning == false)
+    if (window.innerWidth > 840)
         window.location = window.location.href;
 }
 
