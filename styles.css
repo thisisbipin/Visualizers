@@ -1,16 +1,27 @@
 :root {
     --size: 30px;
+    --theme : 0;        /* 0 -> dark, 1 -> Light*/
+    --foreground: white;
+    --background: rgb(29,29,29);
 }
 
 body{
-    background-color: rgb(29, 29, 29);
+    background-color: var(--background);
     margin: 0;
-    color: white;
+    color: var(--foreground);
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
 }
 header h1{
     font-size: 60px;
+}
+.theme{
+    position: absolute;
+    font-size: 30px;
+    right: 20px;
+    top: 10px;
+    padding: 10px;
+    cursor: pointer;
 }
 .box{
     display: flex;
@@ -25,6 +36,7 @@ header h1{
     cursor: pointer;
 }
 .proj-img{
+    width: 100%;
     max-width: 400px;
     margin: 20px;
 }
@@ -34,29 +46,44 @@ a.button {
     appearance: button;
 
     text-decoration: none;
-    background-color: rgba(255, 255, 255, 0);
-    border: 1px solid white;
+    border: 1px solid var(--foreground);
     /* height: 40px; */
     /* width: 100px; */
-    margin: 10px;
+    margin-bottom: 10px;
     padding: 5px 20px;
     font-size: 40px;
-    transition: 0.3s ease all;   color: white;
+    transition: 0.3s ease all;   
+    color: var(--foreground);
 }
 a.button:hover{
     background-color: rgb(141, 177, 245);
     cursor: pointer;
 }
-.content{
-    text-align: left;
-    margin: 20px;
-}
-.fixed-footer{
-    position: fixed;
-    right: 10px;
-    top: 10px;
-    color: black;
-    background-color: thistle;
-    padding: 10px 10px;
-    transition: all 0.3s ease;
+
+@media only screen and (max-width: 361px){
+    header h1{
+        margin-top: 40px;
+        font-size: 50px;
+    }
+    .theme{
+        top:5px;
+    }
+    .box{
+        /* background-color: red; */
+        width: 100%;
+    }
+    .proj{
+        width: 100%;
+        /* border: 1px white solid; */
+        margin:10px;
+    }
+    .proj-img{
+        /* border: 1px white solid; */
+        margin: 10px;
+        /* display: none; */
+        width: 100%;
+    }
+    a.button{
+        font-size: 30px;
+    }
 }

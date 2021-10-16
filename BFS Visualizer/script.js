@@ -39,6 +39,8 @@ function create_cell(i, j) {
 
 // This function selects the cell and marks it Visited, Active or unvisited etc.
 function cell_selector(id) {
+    if (GLOBALS.isrunning == true)
+        return;
     if (GLOBALS.mode == 'START') {
         if (GLOBALS.START_SELECTED == true) {
             alert('Start is already selected');
@@ -162,7 +164,9 @@ document.getElementById("myRange").oninput = function () {
 
 // Automatically refresh the page on resize
 window.onresize = () => {
-    window.location = window.location.href;
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! mobile mode
+    // if(GLOBALS.isrunning == false)
+        window.location = window.location.href;
 }
 
 /* -------------------- Script starts here ---------------------------*/
