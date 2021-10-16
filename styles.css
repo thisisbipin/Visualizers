@@ -1,0 +1,62 @@
+:root {
+    --size: 30px;
+}
+
+body{
+    background-color: rgb(29, 29, 29);
+    margin: 0;
+    color: white;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+header h1{
+    font-size: 60px;
+}
+.box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.proj{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    cursor: pointer;
+}
+.proj-img{
+    max-width: 400px;
+    margin: 20px;
+}
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid white;
+    /* height: 40px; */
+    /* width: 100px; */
+    margin: 10px;
+    padding: 5px 20px;
+    font-size: 40px;
+    transition: 0.3s ease all;   color: white;
+}
+a.button:hover{
+    background-color: rgb(141, 177, 245);
+    cursor: pointer;
+}
+.content{
+    text-align: left;
+    margin: 20px;
+}
+.fixed-footer{
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    color: black;
+    background-color: thistle;
+    padding: 10px 10px;
+    transition: all 0.3s ease;
+}
