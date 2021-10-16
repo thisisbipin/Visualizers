@@ -13,10 +13,10 @@ let box = document.getElementById('box-ID');
 let GLOBALS = {
     DEBUG_MODE: false,
     START: 1001,
-    TARGET: 1001,
+    END: 1001,
     START_SELECTED: false,
-    TARGET_SELECTED: false,
-    mode: 'TARGET',
+    END_SELECTED: false,
+    mode: '',
     isrunning: false,
     algo_speed: 100,
 }
@@ -51,21 +51,30 @@ function cell_selector(id) {
         start_cell(GLOBALS.START);
         GLOBALS.mode = '';
 
-    } else if (GLOBALS.mode == 'TARGET') {
-        if (GLOBALS.TARGET_SELECTED == true) {
+    } else if (GLOBALS.mode == 'END') {
+        if (GLOBALS.END_SELECTED == true) {
             alert('End is already selected');
             return;
         }
 
-        GLOBALS.TARGET = id;
-        GLOBALS.TARGET_SELECTED = true;
-        target_cell(GLOBALS.TARGET);
+        GLOBALS.END = id;
+        GLOBALS.END_SELECTED = true;
+        target_cell(GLOBALS.END);
         GLOBALS.mode = '';
+    } else if (GLOBALS.mode == 'DISABLE') {
+        disable_cell(id);
     }
 }
 
-// This funtion Disables the current cell to mark it visited
+
 function disable_cell(id) {
+    let cell = document.getElementById(id);
+    cell.className = 'color-cell disable';
+    if (cell == undefined)
+        throw new Error("Cell Not Found!!");
+}
+// This funtion  marks current cell to inactive or visited
+function inactive_cell(id) {
     let cell = document.getElementById(id);
     cell.className = 'color-cell-visited';
     if (cell == undefined)
@@ -105,7 +114,7 @@ function reset() {
                 cell.className = 'default-color-cell';
             }
         GLOBALS.START_SELECTED = false;
-        GLOBALS.TARGET_SELECTED = false;
+        GLOBALS.END_SELECTED = false;
     }
     else
         alert('Algorithm is running! Please Wait! If you want to halt the process please Refresh the page.');
@@ -115,13 +124,17 @@ function reset() {
 function getadjacent_ids(id) {
     let res = [];
     if ((id - 1) % 1000 > 0)
-        res.push(id - 1);
+        if (document.getElementById(id - 1).classList.contains('disable') == false)
+            res.push(id - 1);
     if ((id / 1000 - 1) > 1)
-        res.push(id - 1000);
+        if (document.getElementById(id - 1000).classList.contains('disable') == false)
+            res.push(id - 1000);
     if ((id + 1) % 1000 < n)
-        res.push(id + 1);
+        if (document.getElementById(id + 1).classList.contains('disable') == false)
+            res.push(id + 1);
     if (id / 1000 + 1 < m)
-        res.push(id + 1000);
+        if (document.getElementById(id + 1000).classList.contains('disable') == false)
+            res.push(id + 1000);
 
     return res;
 }
@@ -143,15 +156,15 @@ async function start() {
         alert('Select Starting cell!');
         return;
     }
-    if (GLOBALS.TARGET_SELECTED == false) {
+    if (GLOBALS.END_SELECTED == false) {
         alert('Select End Cell!');
         return;
     }
     GLOBALS.isrunning = true;
-    let x = await bfs(GLOBALS.START, GLOBALS.TARGET);
+    let x = await bfs(GLOBALS.START, GLOBALS.END);
     GLOBALS.isrunning = false;
     GLOBALS.START_SELECTED = false;
-    GLOBALS.TARGET_SELECTED = false;
+    GLOBALS.END_SELECTED = false;
 }
 
 
@@ -202,7 +215,7 @@ async function bfs(id, idtofind) {
                 await wait(GLOBALS.algo_speed);
                 if (idtofind == adj[j])
                     return;
-                disable_cell(adj[j]);
+                inactive_cell(adj[j]);
                 queue.push(adj[j]);
                 document.getElementById('count').textContent = cells_visited;
                 cells_visited++;

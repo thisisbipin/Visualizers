@@ -90,9 +90,6 @@ a.button:hover{
 }
 
 @media only screen and (max-width: 840px){
-    .proj-img{
-        /* max-width: 300px; */
-    }
     .proj{
         max-width: 350px;
         margin: 10px;
