@@ -70,18 +70,14 @@ a.button:hover{
         top:5px;
     }
     .box{
-        /* background-color: red; */
         width: 100%;
     }
     .proj{
         width: 100%;
-        /* border: 1px white solid; */
         margin:10px;
     }
     .proj-img{
-        /* border: 1px white solid; */
         margin: 10px;
-        /* display: none; */
         width: 100%;
     }
     a.button{
@@ -93,6 +89,5 @@ a.button:hover{
     .proj{
         max-width: 350px;
         margin: 10px;
-        /* background-color: rebeccapurple; */
     }
 }
