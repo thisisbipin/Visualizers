@@ -108,3 +108,26 @@ async function mergesort() {
     toggleWorking();
 };
 
+async function bubblesort() {
+    if (G.isworking == true) {
+        alert('Already Working...');
+        return;
+    }
+    for(let i = 0; i < arr.length; i++){
+        for (let j = 0; j < (arr.length - i - 1); j++) {
+            if (arr[j] > arr[j + 1]) {
+
+                // If the condition is true then swap them
+                var temp = arr[j];
+                Bars.activeinterativeBar(j);
+                Bars.activeBar(j + 1);
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                await wait(G.speed);
+                Bars.inactiveBar(j);
+                Bars.inactiveBar(j + 1);
+                Bars.updatebars();
+            }
+        }
+ }  
+}
