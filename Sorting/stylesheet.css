@@ -21,7 +21,7 @@ body{
     display: flex;
     justify-content: center;
     flex-wrap:wrap;
-    flex-basis: auto;
+    flex-basis:inherit;
     height: 100%;
     width: calc(100% - 40px);
     background-color: green;
@@ -141,4 +141,21 @@ a:hover {
     padding:  10px 70px;
   background-color: green;
   color: white;
+}
+.stopwatch {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid #eee;
+  padding: 5px;
+  margin: 5px;
+}
+
+.stopwatch span {
+  font-weight: bold;
+  display: block;
+}
+
+.stopwatch a {
+  padding-right: 5px;
+  text-decoration: none;
 }
