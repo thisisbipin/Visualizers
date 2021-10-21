@@ -1,12 +1,12 @@
 async function wait(ms) {
     return new Promise(r => setTimeout(r, ms))
 }
-function toggleWorking() {
+function toggleWorking(fromalgo) {
     let working = document.getElementById('working');
     if (G.isworking == true) {
         G.isworking = false;
         working.textContent = 'DONE';
-        timer.stop();
+        timer.stop(fromalgo);
     }
     else {
         G.isworking = true;
@@ -25,7 +25,7 @@ async function insertionsort() {
         return;
     }
 
-    toggleWorking();
+    toggleWorking('Insertion Sort');
 
     for (let i = 0; i < arr.length; i++) {
         let key = arr[i];
@@ -44,7 +44,7 @@ async function insertionsort() {
         Bars.updatebars();
     }
 
-    toggleWorking();
+    toggleWorking('Insertion Sort');
 
     //just traversing
     for (let i = 0; i < arr.length; i++) {
@@ -59,7 +59,7 @@ async function mergesort() {
         alert('Already Working...');
         return;
     }
-    toggleWorking();
+    toggleWorking('Merge Sort');
     let low = 0, high = arr.length - 1;
     for (let m = 1; m <= high - low; m = 2 * m) {
         for (let k = low; k < high; k += 2 * m) {
@@ -104,7 +104,7 @@ async function mergesort() {
         Bars.updatebars();
     }
 
-    toggleWorking();
+    toggleWorking('Merge Sort');
 
     //just traversing
     for (let i = 0; i < arr.length; i++) {
@@ -119,7 +119,7 @@ async function bubblesort() {
         alert('Already Working...');
         return;
     }
-    toggleWorking();
+    toggleWorking('Bubble Sort');
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < (arr.length - i - 1); j++) {
             if (arr[j] > arr[j + 1]) {
@@ -145,7 +145,7 @@ async function bubblesort() {
         }
     }
 
-    toggleWorking();
+    toggleWorking('Bubble Sort');
 
     //just traversing
     for (let i = 0; i < arr.length; i++) {

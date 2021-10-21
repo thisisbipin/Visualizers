@@ -82,13 +82,17 @@ class Stopwatch {
         }
     }
 
-    stop() {
+    stop(fromalgo) {
         if (G.DEBUG_MODE == true)
             console.log('stopped!');
         if (this.interval) {
             clearInterval(this.interval);
             this.interval = null;
             console.log(this.clocktime);
+            if (this.clocktime / 1000 > 1) {
+                history_times.push(this.clocktime / 1000);
+                jQuery('<li>').html((this.clocktime / 1000).toFixed(3) + ' - ' + fromalgo).appendTo('.history');
+            }
         }
     }
 

@@ -6,6 +6,7 @@ let G = {
     maxHeight: Math.floor(window.innerHeight - $('.header').height()),
 }
 let arr = [];
+let history_times = [];
 let collection = document.getElementById('chartID');
 let timer = document.getElementById("a-timer");
 
@@ -29,4 +30,5 @@ function start() {
 
     timer = new Stopwatch(timer);
 
+    $('.history').hide();
 }

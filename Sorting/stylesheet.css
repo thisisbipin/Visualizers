@@ -159,3 +159,15 @@ a:hover {
   padding-right: 5px;
   text-decoration: none;
 }
+
+
+.history{
+  position: absolute;
+  background-color: rgba(102, 51, 153, 0.918);
+  border: 2px solid white;
+  height: 50%;
+  width: 20%;
+  min-width: 200px;
+  padding: 20px;
+  overflow-x: auto;
+}

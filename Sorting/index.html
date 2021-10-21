@@ -21,7 +21,11 @@
         <h1>Sorting Techniques</h1>
         <div class="ramdomize-bar">
             <button type="submit" class="click-buttons" onclick="Bars.randomize(0,G.maxHeight)">Randomize</button>
+            <button type="submit" class="click-buttons" onclick="$('.history').toggle()">History📝</button>
             <span id="timer-container">Time Taken: </span>
+            <div class="history"> The list of the last Stop times:
+                <ul></ul>
+            </div>
         </div>
         <div class="buttons">
             <button type="submit" class="click-buttons" onclick="insertionsort()">Insertion Sort</button>
