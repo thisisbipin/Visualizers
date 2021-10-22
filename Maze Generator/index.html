@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze Generator</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="../../Sorting/src/jquery-3.6.0.min.js"></script>
+    <script src="./queue.js" defer></script>
+    <script src="./script.js" defer></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Maze Generator</h1>
+        <input class="click-buttons" type="button" value="Generate Maze" onclick="GenerateMaze()">
+        <input class="click-buttons" type="button" value="Skip Animation" onclick="G.speed = undefined">
+        <input class="click-buttons" type="button" value="Visualize" onclick="start()">
+        <input class="click-buttons" type="button" value="Reset" onclick="start()">
+        <div class="slidecontainer">
+            Speed : <input type="range" min="10" max="2000" value="1900" class="slider" id="myRange">
+        </div>
+    </div>
+    <div id="sample-cell" class="cell" style="display: none;"></div>
+    <div id="box-ID" class="box">
+    </div>
+    <div class="content">
+        ❓ How to use:<br>
+        <ul>
+            <li>If you Resize the window please consider Reloading the page.</li>
+            <li>Click "Generate Maze" Button to generate maze.</li>
+            <li>Click on "Skip Animation" to finish Quickly.</li>
+            <li>Click on "Reset" to reset the window after algorithm finishes.</li>
+        </ul>
+    </div>
+    <a href="../BFS Visualizer/index.html" class="previous">&laquo; Prev</a>
+    <a href="../index.html" class="home">Home</a>
+    <a href="../Sorting/index.html" class="next">Next &raquo;</a>
+
+</body>
+
+</html>
