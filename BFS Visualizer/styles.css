@@ -9,6 +9,9 @@ body{
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
 }
+.header{
+    padding: 20px;
+}
 .box{
     display: flex;
     border: rgb(210, 217, 219) solid 1px;
