@@ -1,9 +1,15 @@
 function plot_root_locus(gains, rootsL) {
+  $("#plot-area").empty();
+  let configs = {
+    scrollZoom: true,
+    displaylogo: false,
+  };
   let plots = [];
   for (let traceLine = 0; traceLine < rootsL.length; traceLine++) {
     var trace = {
       x: rootsL[traceLine][0],
       y: rootsL[traceLine][1],
+      name: "Line " + (traceLine + 1),
       mode: "lines",
       type: "scatter",
     };
@@ -12,6 +18,11 @@ function plot_root_locus(gains, rootsL) {
   let layout = {
     title: "Root Locus",
     showlegend: true,
+    // plot_bgcolor: "#292929",
+    // paper_bgcolor: "#292929",
+    font: {
+      // color: "#ff  1,f",
+    },
   };
 
   // Zeroes
@@ -23,6 +34,7 @@ function plot_root_locus(gains, rootsL) {
   let traceZ = {
     x: zeroes[0],
     y: zeroes[1],
+    name: "Zeroes",
     mode: "markers",
     type: "scatter",
     marker: {
@@ -42,6 +54,7 @@ function plot_root_locus(gains, rootsL) {
   let traceP = {
     x: poles[0],
     y: poles[1],
+    name: "Poles",
     mode: "markers",
     type: "scatter",
     marker: {
@@ -51,5 +64,5 @@ function plot_root_locus(gains, rootsL) {
   };
   plots.push(traceP);
   console.log(traceP);
-  Plotly.newPlot("plot-area", plots, layout, { scrollZoom: true });
+  Plotly.newPlot("plot-area", plots, layout, configs);
 }

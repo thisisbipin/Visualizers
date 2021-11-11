@@ -1,3 +1,78 @@
+:root {
+  --size: 30px;
+  --border-color: rgb(175, 175, 175);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
-  background-color: #292929;
+  background-color: rgb(29, 29, 29);
+  margin: 0;
+  color: white;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+}
+.header {
+  padding: 20px;
+}
+#num,
+#denum {
+  margin: 5px;
+  padding: 5px;
+}
+#plot-area {
+  width: 99%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.click-buttons {
+  background-color: white;
+  border: 0px;
+  height: 40px;
+  width: 100px;
+  margin: 5px;
+  transition: 0.3s ease all;
+}
+.click-buttons:hover {
+  background-color: rgb(141, 177, 245);
+  cursor: pointer;
+}
+.content {
+  text-align: left;
+  margin: 20px;
+}
+.fixed-footer {
+  position: fixed;
+  right: 5px;
+  bottom: 10px;
+  color: white;
+  background-color: #04aa6d;
+  padding: 10px 10px;
+  transition: all 0.3s ease;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous,
+.next {
+  padding: 10px 10px;
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.home {
+  padding: 10px 70px;
+  background-color: rebeccapurple;
+  color: white;
 }

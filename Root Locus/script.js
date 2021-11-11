@@ -1,7 +1,29 @@
-let num = [1, 1];
-let denum = [1, 9.5, 32];
-let GH = transfer_function(num, denum);
-let gains = linspace(0.0, 10.0, 100);
-let rootsList = compute_roots(GH, gains);
-console.log(rootsList);
-plot_root_locus(1, rootsList);
+let G = {
+  DEBUG_MODE: false,
+  THEME: "light",
+  noOfGains: 100,
+  maxGain: 10,
+};
+$(() => {
+  let height = window.innerHeight - Math.ceil($(".header").outerHeight());
+  $("#plot-area").height(height);
+});
+
+function plotIt() {
+  let num = $("#num").val();
+  let denum = $("#denum").val();
+  num = num.split(",").map((x) => parseInt(x));
+  denum = denum.split(",").map((x) => parseInt(x));
+  //   console.log(num, denum);
+  let transfer_f_GH = transfer_function(num, denum);
+  let gains = linspace(0.0, G.maxGain, G.noOfGains);
+  let rootsList = compute_roots(transfer_f_GH, gains);
+  console.log(rootsList);
+  plot_root_locus(1, rootsList);
+}
+
+// Update the current slider value (each time you drag the slider handle)
+document.getElementById("myRange").oninput = function () {
+  if (G.DEBUG_MODE == true) console.log("Speed Changed to:", G.algo_speed);
+  G.noOfGains = this.value;
+};

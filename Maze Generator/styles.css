@@ -1,23 +1,23 @@
 :root {
-    --size: 30px;
-    --border-color: rgb(175, 175, 175);
+  --size: 30px;
+  --border-color: rgb(175, 175, 175);
 }
-*{
+* {
   margin: 0;
   padding: 0;
 }
-body{
-    background-color: rgb(29, 29, 29);
-    margin: 0;
-    color: white;
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
+body {
+  background-color: rgb(29, 29, 29);
+  margin: 0;
+  color: white;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
 }
-.header{
+.header {
   padding: 20px;
 }
 
-#box-ID{
+#box-ID {
   /* background-color: rgb(94, 26, 26); */
   display: flex;
   flex-wrap: wrap;
@@ -25,7 +25,7 @@ body{
   border: 1px white solid;
   margin: 10px;
 }
-.cell{
+.cell {
   background-color: rgb(66, 75, 207);
   justify-content: center;
   align-items: center;
@@ -34,48 +34,47 @@ body{
   border: 3px rgba(255, 99, 71, 0) solid;
 }
 
-.top{
-  border-top: 3px var(--border-color)  solid;
+.top {
+  border-top: 3px var(--border-color) solid;
 }
-.left{
-  border-left: 3px var(--border-color)  solid;
+.left {
+  border-left: 3px var(--border-color) solid;
 }
-.right{
-  border-right: 3px  var(--border-color) solid;
+.right {
+  border-right: 3px var(--border-color) solid;
 }
-.bottom{
-  border-bottom: 3px  var(--border-color) solid;
+.bottom {
+  border-bottom: 3px var(--border-color) solid;
 }
 
-.highlight{
+.highlight {
   background-color: black;
 }
 
-
-.click-buttons{
-    background-color: white;
-    border: 0px;
-    height: 40px;
-    width: 100px;
-    margin: 5px;
-    transition: 0.3s ease all;
+.click-buttons {
+  background-color: white;
+  border: 0px;
+  height: 40px;
+  width: 100px;
+  margin: 5px;
+  transition: 0.3s ease all;
 }
-.click-buttons:hover{
-    background-color: rgb(141, 177, 245);
-    cursor: pointer;
+.click-buttons:hover {
+  background-color: rgb(141, 177, 245);
+  cursor: pointer;
 }
-.content{
-    text-align: left;
-    margin: 20px;
+.content {
+  text-align: left;
+  margin: 20px;
 }
-.fixed-footer{
-    position: fixed;
-    right: 5px;
-    bottom: 10px;
-    color: white;
-    background-color: #04AA6D;
-    padding: 10px 10px;
-    transition: all 0.3s ease;
+.fixed-footer {
+  position: fixed;
+  right: 5px;
+  bottom: 10px;
+  color: white;
+  background-color: #04aa6d;
+  padding: 10px 10px;
+  transition: all 0.3s ease;
 }
 a {
   text-decoration: none;
@@ -88,14 +87,15 @@ a:hover {
   color: black;
 }
 
-.previous,.next {
-    padding: 10px 10px;
+.previous,
+.next {
+  padding: 10px 10px;
   background-color: #f1f1f1;
   color: black;
 }
 
 .home {
-    padding:  10px 70px;
+  padding: 10px 70px;
   background-color: rebeccapurple;
   color: white;
 }
