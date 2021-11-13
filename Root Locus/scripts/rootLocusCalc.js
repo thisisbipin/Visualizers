@@ -56,8 +56,6 @@ function compute_roots(tf, gains) {
       ch_eq_coeff.push(denum[j] + num[j] * gain);
 
     let ch_roots = roots(ch_eq_coeff);
-    // ch_roots.sort();
-    // console.log(ch_roots);
     rootsList.push(ch_roots);
   }
   rootsList = transpose(rootsList);

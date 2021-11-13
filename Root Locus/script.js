@@ -15,8 +15,8 @@ function plotIt() {
   num = num.split(",").map((x) => parseInt(x));
   denum = denum.split(",").map((x) => parseInt(x));
   //   console.log(num, denum);
-  num = [1, 3];
-  denum = [1, 7, 14, 8, 0];
+  // num = [1, 3];
+  // denum = [1, 13, 56, 92, 48, 0];
 
   let transfer_f_GH = transfer_function(num, denum);
   let gains = linspace(0.0, G.maxGain, G.noOfGains);
