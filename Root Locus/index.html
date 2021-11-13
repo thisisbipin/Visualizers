@@ -15,11 +15,11 @@
     <script src="./scripts/tools.js"></script>
     <script src="./scripts/rootLocusCalc.js"></script>
     <script src="./scripts/plotting.js"></script>
-    <script src="./script.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
      <div class="header">
-        <h1>DFS Visualiser</h1>
+        <h1>Root Locus</h1>
         <br />
         
         <span style="color: red;">(Has some Bugs :| so all of the TF may not work)</span>
@@ -30,8 +30,8 @@
         Numerator: <input type="text" name="Numerator" id="num"><br />
         Denominator: <input type="text" name="Denominator" id="denum"><br />
 
-        <input class="click-buttons" type="button" value="Plot" onclick="plotIt()">
-        <input class="click-buttons" type="button" value="Reset" onclick="reset()">
+        <input id="plot-button" class="click-buttons" type="button" value="Plot" onclick="plotIt()">
+        <input id="reset-button" class="click-buttons" type="button" value="Reset" onclick="reset()">
         <div class="slidecontainer">
             Number of Points : <input type="range" min="10" max="600" value="10" class="slider" id="myRange">
         </div>
@@ -48,9 +48,10 @@
             <li>Click on "Reset" to reset the window after Plotting finishes.</li>
         </ul>
     </div>
+    <div>
     <a href="../Maze Generator/index.html" class="previous">&laquo; Prev</a>
     <a href="../index.html" class="home">Home</a>
     <a href="#" class="next">Next &raquo;</a>
-
+        </div>
 </body>
 </html>

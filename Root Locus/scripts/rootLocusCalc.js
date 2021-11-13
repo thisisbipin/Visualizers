@@ -8,15 +8,20 @@ function roots(listOfCoeff) {
     """*/
   let polynomial = "0";
   for (let i = 0; i < listOfCoeff.length; i++) {
-    polynomial = listOfCoeff[i] + "*x^" + i + "+" + polynomial;
+    polynomial =
+      listOfCoeff[i] +
+      "*x^" +
+      (listOfCoeff.length - 1 - i) +
+      (polynomial[0] == "-" ? " " + polynomial : "+ " + polynomial);
   }
-  let roots = [];
+  let rootsL = [];
   let intermediate = nerdamer.solveEquations(polynomial, "x");
   for (let i = 0; i < intermediate.length; i++)
-    roots.push(
+    rootsL.push(
       nerdamer(intermediate[i].toString(), { x: 0 }).evaluate().text()
     );
-  return roots;
+  if (rootsL.length == 1) rootsL.push(rootsL[0]);
+  return rootsL;
 }
 
 function transfer_function(num = [], den = []) {
@@ -51,19 +56,23 @@ function compute_roots(tf, gains) {
       ch_eq_coeff.push(denum[j] + num[j] * gain);
 
     let ch_roots = roots(ch_eq_coeff);
+    // ch_roots.sort();
+    // console.log(ch_roots);
     rootsList.push(ch_roots);
   }
   rootsList = transpose(rootsList);
-  console.log("rootsList:", transpose(rootsList));
+  console.log(rootsList);
   let newR = [];
   for (let line = 0; line < rootsList.length; line++) {
     let thisone = [];
     for (let j = 0; j < rootsList[0].length; j++) {
       let str = rootsList[line][j].replace("*", "");
+      // console.log(str);
       let c = math.Complex(str);
       thisone.push([c.re, c.im]);
     }
     newR.push(transpose(thisone));
   }
+  console.log(newR);
   return newR;
 }
