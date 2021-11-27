@@ -25,44 +25,45 @@ function plot_root_locus(gains, rootsL) {
     },
   };
 
-  // Zeroes
-  let zeroes = [];
-  for (let i = 0; i < rootsL.length; i++)
-    zeroes.push([rootsL[i][0][0], rootsL[i][1][0]]);
-  zeroes = transpose(zeroes);
-  console.log("Zeroes:", zeroes);
-  let traceZ = {
-    x: zeroes[0],
-    y: zeroes[1],
-    name: "Zeroes",
-    mode: "markers",
-    type: "scatter",
-    marker: {
-      size: 12,
-      // shape: "line-ew",
-    },
-  };
-  plots.push(traceZ);
-  console.log(traceZ);
-
   // Poles
-  let poles = [];
+  let Poles = [];
   for (let i = 0; i < rootsL.length; i++)
-    poles.push([rootsL[i][0].slice(-1)[0], rootsL[i][1].slice(-1)[0]]);
-  poles = transpose(poles);
-  console.log("Poles:", poles);
+    Poles.push([rootsL[i][0].slice(-1)[0], rootsL[i][1].slice(-1)[0]]);
+  Poles = transpose(Poles);
   let traceP = {
-    x: poles[0],
-    y: poles[1],
+    x: Poles[0],
+    y: Poles[1],
     name: "Poles",
     mode: "markers",
     type: "scatter",
     marker: {
       size: 12,
-      // shape: "line-ew",
+      symbol: "circle-open",
+      line: {
+        width: 3,
+      },
     },
   };
   plots.push(traceP);
-  console.log(traceP);
+
+  // Zeroes
+  let Zeroes = [];
+  for (let i = 0; i < rootsL.length; i++)
+    Zeroes.push([rootsL[i][0][0], rootsL[i][1][0]]);
+  Zeroes = transpose(Zeroes);
+  let traceZ = {
+    x: Zeroes[0],
+    y: Zeroes[1],
+    name: "Zeroes",
+    mode: "markers",
+    type: "scatter",
+    marker: {
+      color: "black",
+      size: 12,
+      symbol: "x",
+    },
+  };
+  plots.push(traceZ);
+  console.log(traceZ);
   Plotly.newPlot("plot-area", plots, layout, configs);
 }
