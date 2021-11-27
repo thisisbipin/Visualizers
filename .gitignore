@@ -1,0 +1,4 @@
+.mypy_cache/
+test/
+.gitignore/
+Load Flow Analysis/

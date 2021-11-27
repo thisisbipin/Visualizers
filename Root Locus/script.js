@@ -24,6 +24,6 @@ function plotIt() {
 
 // Update the current slider value (each time you drag the slider handle)
 document.getElementById("myRange").oninput = function () {
-  if (G.DEBUG_MODE == true) console.log("Speed Changed to:", G.algo_speed);
   G.noOfGains = this.value;
+  if (G.DEBUG_MODE == true) console.log("No. of points Changed to:", G.noOfGains);
 };
