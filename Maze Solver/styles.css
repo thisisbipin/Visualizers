@@ -1,6 +1,7 @@
 :root {
-  --size: 30px;
-  --border-color: rgb(175, 175, 175);
+  --size: 40px;
+  --cell-color: green;
+  --border-color: rgb(0, 255, 34);
 }
 * {
   margin: 0;
@@ -14,24 +15,35 @@ body {
   font-family: "Courier New", Courier, monospace;
 }
 .header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
 }
-
 #box-ID {
-  /* background-color: rgb(94, 26, 26); */
   display: flex;
   flex-wrap: wrap;
+  /* flex-direction: column; */
+  background-color: var(--cell-color);
+  align-items: center;
+  justify-content: center;
   padding: 10px;
   border: 1px white solid;
   margin: 10px;
 }
+.sub-box {
+  display: flex;
+}
 .cell {
-  background-color: rgb(66, 75, 207);
+  background-color: var(--cell-color);
   justify-content: center;
   align-items: center;
   height: var(--size);
   width: var(--size);
+  border-radius: 3px;
   border: 3px rgba(255, 99, 71, 0) solid;
+  font-size: 30px;
 }
 
 .top {
@@ -47,21 +59,9 @@ body {
   border-bottom: 3px var(--border-color) solid;
 }
 
-.highlight {
-  background-color: black;
-}
-
 .click-buttons {
-  background-color: white;
-  border: 0px;
-  height: 40px;
-  width: 100px;
   margin: 5px;
   transition: 0.3s ease all;
-}
-.click-buttons:hover {
-  background-color: rgb(141, 177, 245);
-  cursor: pointer;
 }
 .content {
   text-align: left;
@@ -86,7 +86,15 @@ a:hover {
   background-color: #ddd;
   color: black;
 }
-
+.slidecontainer {
+  width: 200px;
+}
+.progress {
+  cursor: pointer;
+}
+.progress-bar {
+  transition: 0.1s all ease;
+}
 .previous,
 .next {
   padding: 10px 10px;
@@ -96,6 +104,6 @@ a:hover {
 
 .home {
   padding: 10px 70px;
-  background-color: rebeccapurple;
+  /* background-color: rebeccapurple; */
   color: white;
 }
