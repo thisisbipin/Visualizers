@@ -15,6 +15,7 @@ $(() => {
     GLOBALS.width = Math.floor($("#box-ID").innerWidth()) - 20; // -20 is because of css padding
     GLOBALS.height = window.innerHeight - Math.ceil($(".header").outerHeight());
     $("#box-ID").height(GLOBALS.height);
+    $("#print").on("click", () => printDiv("box-ID"));
 
     reset();
     speedManager();
@@ -63,15 +64,11 @@ $(() => {
         GLOBALS.isrunning = false;
     });
     $("#reset-btn").on("click", () => reset());
-    $(".progress").on("click", (e) => {
-        let progresswidth = $(".progress").width();
-        GLOBALS.speed =
-            1000 - (1 - (progresswidth - e.offsetX) / progresswidth) * 1000;
-        console.log(GLOBALS.speed);
-        progresswidth = (1000 - GLOBALS.speed) / 10;
-        $(".progress-bar").width(progresswidth + "%");
+    document.getElementById("speed-control").value = 500;
+    document.getElementById("speed-control").oninput = function () {
+        GLOBALS.speed = Math.pow(Math.E, this.value / 100);
         speedManager();
-    });
+    };
 });
 
 function speedManager() {
@@ -102,3 +99,12 @@ function reset() {
     GLOBALS.isMazeAvailable = false;
     GLOBALS.isSolved = false;
 }
+
+let printDiv = function (divName) {
+    console.log("click hua");
+    alert(
+        "Please use scale option to fit the Grid on paper and Choose Landscape for better Results"
+    );
+    window.print();
+    return;
+};
