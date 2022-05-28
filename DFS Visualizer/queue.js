@@ -10,8 +10,7 @@ class Queue {
     }
     pop() {
         let deleteditem = this.arr[0];
-        for (let i = 1; i < this.arr.length; i++)
-            this.arr[i - 1] = this.arr[i];
+        for (let i = 1; i < this.arr.length; i++) this.arr[i - 1] = this.arr[i];
         this.arr.pop();
         return deleteditem;
     }

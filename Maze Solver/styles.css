@@ -14,6 +14,32 @@ body {
   text-align: center;
   font-family: "Courier New", Courier, monospace;
 }
+@keyframes anim {
+  to {
+      background-color: green;
+      /* border-right-width: 4.8em; */
+  }
+}
+
+@keyframes anim-half {
+  50% {
+      background-color: green;
+      /* border-right-width: 4.8em; */
+  }
+}
+.blink {
+  width: 100px;
+  height: 100px;
+  /* background-color: white; */
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  border-style: solid;
+  color: #fff;
+  animation-timing-function: cubic-bezier(1,0,0,1);
+  animation-name: anim-half;
+  border: 0px;
+}
 .header {
   display: flex;
   flex-direction: column;

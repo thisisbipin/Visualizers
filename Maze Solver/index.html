@@ -1,61 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Maze Solver</title>
+        <!-- CSS only -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="./styles.css" />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
+        ></script>
+        <script src="./modules/jquery-3.6.0.min.js"></script>
+        <script src="./script.js" type="module" defer></script>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maze Solver</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./modules/jquery-3.6.0.min.js"></script>
-    <script src="./script.js" type="module" defer></script>
-</head>
-
-<body>
-    
-    <div class="header">
-        <h1 class="display-4">Maze Generator and Solver</h1>
-        <span>
-            <input id="maze-gen-btn" class="btn btn-warning click-buttons" type="button" value="Generate Maze">
-            <input id="skip-anim-btn" class="btn btn-primary click-buttons" type="button" value="Skip Animation">
-            <span class="dropdown inline">
-                <button class="btn btn-success dropdown-toggle click-buttons" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Solve via
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a id="bfs" class="solve-btn dropdown-item" href="#">Breadth First Search</a></li>
-                  <li><a id="dfs" class="solve-btn dropdown-item" href="#">Depth First Search</a></li>
-                </ul>
-              </span>
-            <input id="reset-btn" class="btn btn-danger click-buttons" type="button" value="Reset">
-        </span>
-        <div class="slidecontainer">
-            Speed :  <span class="progress">
-                <span class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></span>
-              </span>
+    <body>
+        <div class="header">
+            <h1 class="display-4">Maze Generator and Solver</h1>
+            <span>
+                <input
+                    id="maze-gen-btn"
+                    class="btn btn-warning click-buttons"
+                    type="button"
+                    value="Generate Maze"
+                />
+                <input
+                    id="skip-anim-btn"
+                    class="btn btn-primary click-buttons"
+                    type="button"
+                    value="Skip Animation"
+                />
+                <span class="dropdown inline">
+                    <button
+                        class="btn btn-success dropdown-toggle click-buttons"
+                        type="button"
+                        id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                        Solve via
+                    </button>
+                    <ul
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton1"
+                    >
+                        <li>
+                            <a id="bfs" class="solve-btn dropdown-item" href="#"
+                                >Breadth First Search</a
+                            >
+                        </li>
+                        <li>
+                            <a id="dfs" class="solve-btn dropdown-item" href="#"
+                                >Depth First Search</a
+                            >
+                        </li>
+                    </ul>
+                </span>
+                <input
+                    id="reset-btn"
+                    class="btn btn-danger click-buttons"
+                    type="button"
+                    value="Reset"
+                />
+            </span>
+            <div class="slidecontainer">
+                Speed :
+                <span class="progress">
+                    <span
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: 50%"
+                        aria-valuenow="75"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                    ></span>
+                </span>
+            </div>
         </div>
-    </div>
-    <div id="sample-cell" class="cell" style="display: none;"></div>
-    <div id="box-ID" class="box">
-    </div>
-    <div class="content">
-        ❓ How to use:<br>
-        <ul>
-            <li>If you Resize the window please consider Reloading the page.</li>
-            <li>Click "Generate Maze" Button to generate maze.</li>
-            <li>Click on "Skip Animation" to finish Quickly.</li>
-            <li>Click on "Reset" to reset the window after algorithm finishes.</li>
-            <li style="color: yellow;"> Tip: you can use "Ctrl + MouseWheel" to increase or Decrease the number of Cells on Desktop.</li>
-        </ul>
-        
-    </div>
-    <a href="../Sorting/index.html" class="btn previous">&laquo; Prev</a>
-    <a href="../index.html" class="btn home">Home</a>
-    <a href="../Root Locus/index.html" class="btn next">Next &raquo;</a>
-
-</body>
-
+        <div id="sample-cell" class="cell" style="display: none"></div>
+        <div id="box-ID" class="box"></div>
+        <div class="content">
+            ❓ How to use:<br />
+            <ul>
+                <li>
+                    If you Resize the window please consider Reloading the page.
+                </li>
+                <li>Click "Generate Maze" Button to generate maze.</li>
+                <li>Click on "Skip Animation" to finish Quickly.</li>
+                <li>
+                    Click on "Reset" to reset the window after algorithm
+                    finishes.
+                </li>
+                <li style="color: yellow">
+                    Tip: you can use "Ctrl + MouseWheel" to increase or Decrease
+                    the number of Cells on Desktop.
+                </li>
+            </ul>
+        </div>
+        <a href="../Sorting/index.html" class="btn previous">&laquo; Prev</a>
+        <a href="../index.html" class="btn home">Home</a>
+        <a href="../Root Locus/index.html" class="btn next">Next &raquo;</a>
+    </body>
 </html>

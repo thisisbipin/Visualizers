@@ -1,59 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./stylesheet.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+            integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <script src="./src/jquery-3.6.0.min.js"></script>
+        <script src="./src/bars&timer.js"></script>
+        <script src="./src/sorting_algos.js"></script>
+        <script src="./script.js" defer></script>
+        <title>Sorting</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./stylesheet.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="./src/jquery-3.6.0.min.js"></script>
-    <script src="./src/bars&timer.js"></script>
-    <script src="./src/sorting_algos.js"></script>
-    <script src="./script.js" defer></script>
-    <title>Sorting</title>
-</head>
-
-<body>
-    <div class="header">
-        <h1>Sorting Techniques</h1>
-        <div class="ramdomize-bar">
-            <button type="submit" class="click-buttons" onclick="Bars.randomize(0,G.maxHeight)">Randomize</button>
-            <button type="submit" class="click-buttons" onclick="$('.history').toggle()">History📝</button>
-            <span id="timer-container">Time Taken: </span>
-            <div class="history"> The list of the last Stop times:
-                <ul></ul>
+    <body>
+        <div class="header">
+            <h1>Sorting Techniques</h1>
+            <div class="ramdomize-bar">
+                <button
+                    type="submit"
+                    class="click-buttons"
+                    onclick="Bars.randomize(0,G.maxHeight)"
+                >
+                    Randomize
+                </button>
+                <button
+                    type="submit"
+                    class="click-buttons"
+                    onclick="$('.history').toggle()"
+                >
+                    History📝
+                </button>
+                <span id="timer-container">Time Taken: </span>
+                <div class="history">
+                    The list of the last Stop times:
+                    <ul></ul>
+                </div>
             </div>
-        </div>
-        <div class="buttons">
-            <button type="submit" class="click-buttons" onclick="insertionsort()">Insertion Sort</button>
-            <button type="submit" class="click-buttons" onclick="mergesort()">Merge Sort</button>
-            <button type="submit" class="click-buttons" onclick="bubblesort()">Bubble Sort</button>
-            <button type="submit" class="click-buttons" onclick="quicksort(0,arr.length)">Quick Sort #</button>
-            <button type="submit" class="click-buttons" onclick="countsort()">Count Sort #</button>
-            <button type="submit" class="click-buttons" onclick="cyclesort()">Cycle Sort #</button>
-        </div>
-        <div class="slidecontainer">
-            <span> Speed : </span><input type="range" min="1" max="40" value="10" class="slider" id="myRange">
-        </div>
-        <b>
-            <div id="working">
-                <span>Click on any Algorithm to Start </span>
-
-                <blink> <i class="fa-solid fa-angles-right"></i> </blink>
+            <div class="buttons">
+                <button
+                    type="submit"
+                    class="click-buttons"
+                    onclick="insertionsort()"
+                >
+                    Insertion Sort
+                </button>
+                <button
+                    type="submit"
+                    class="click-buttons"
+                    onclick="mergesort()"
+                >
+                    Merge Sort
+                </button>
+                <button
+                    type="submit"
+                    class="click-buttons"
+                    onclick="bubblesort()"
+                >
+                    Bubble Sort
+                </button>
+                <button
+                    type="submit"
+                    class="click-buttons"
+                    onclick="quicksort(0,arr.length)"
+                >
+                    Quick Sort #
+                </button>
+                <button
+                    type="submit"
+                    class="click-buttons"
+                    onclick="countsort()"
+                >
+                    Count Sort #
+                </button>
+                <button
+                    type="submit"
+                    class="click-buttons"
+                    onclick="cyclesort()"
+                >
+                    Cycle Sort #
+                </button>
             </div>
-        </b>
-        <div id="sample-bar" style="display: none;" class="bar"></div>
-    </div>
-    <div id="chartID" class="chart">
-    </div>
-    <footer>
-        <a href="../DFS Visualizer/index.html" class="previous">&laquo; Prev</a>
-        <a href="../index.html" class="home">Home</a>
-        <a href="../Maze Generator/index.html" class="next">Next &raquo;</a>
-    </footer>
-</body>
+            <div class="slidecontainer">
+                <span> Speed : </span
+                ><input
+                    type="range"
+                    min="1"
+                    max="40"
+                    value="10"
+                    class="slider"
+                    id="myRange"
+                />
+            </div>
+            <b>
+                <div id="working">
+                    <span>Click on any Algorithm to Start </span>
 
+                    <blink> <i class="fa-solid fa-angles-right"></i> </blink>
+                </div>
+            </b>
+            <div id="sample-bar" style="display: none" class="bar"></div>
+        </div>
+        <div id="chartID" class="chart"></div>
+        <footer>
+            <a href="../DFS Visualizer/index.html" class="previous"
+                >&laquo; Prev</a
+            >
+            <a href="../index.html" class="home">Home</a>
+            <a href="../Maze Solver/index.html" class="next">Next &raquo;</a>
+        </footer>
+    </body>
 </html>
